@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700');
+
+/***********
+* FONT TYPES
+************/
+
+$main-font: 'Source Sans Pro', sans-serif;
+$code-font: 'Courier New', serif;
+
+// Font wieghts
+$light: 300;
+$normal: 400;
+$medium-bold: 600;
+$bold: 700;
+
+
+/*****************
+* GENERAL ELEMENTS
+******************/
+
+$nav-height: 80px;
+
+/*************
+* BRAND COLORS
+**************/
+
+// Primary Colors
+$primary-white-space: #ffffff;
+$secondary-white-space: #f3f3f3;
+$primary-blue: #0064c0;
+$medium-blue: #0054A3;
+$dark-blue: #0a1d52;
+$light-blue: #00b5f3;
+
+// Font Colors
+$primary-type-color: #213241;
+$secondary-type-color: #5b7083;
+$tertiary-type-color: #B3BAC0;
+
+// Accent Colors
+$tertiary-green: #29da9c;
+$tertiary-gold: #ffb918;
+$tertiary-pink:#d81e5b;

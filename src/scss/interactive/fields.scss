@@ -1,0 +1,130 @@
+@mixin fields {
+  input {
+		border-radius: 3px;
+		border: 1px solid #DEE1E6;
+		display: block;
+		height: 30px;
+		width: 180px;
+		padding: 0 10px;
+		&:focus {
+			box-shadow: 0 0 .5em #ddd;
+			outline: none;
+		}
+		&::placeholder {
+			color: #B3BAC0;
+			font-size: 9px;
+		}
+		&.sign-in-field {
+			margin-bottom: -1px;
+			&.username {
+				border-bottom-left-radius: 0;
+				border-bottom-right-radius: 0;
+			}
+			&.password {
+				border-top-left-radius: 0;
+				border-top-right-radius: 0;
+    		margin-bottom: 30px;
+			}
+		}
+	}
+  select {
+    height: 36px;
+    width: 200px;
+    border: solid 1px #DEE1E6;
+    border-radius: 3px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: none;
+    cursor: pointer;
+    padding: 0 10px 0 15px;
+    text-transform: uppercase;
+    &:focus {
+			box-shadow: 0 0 .5em #ddd;
+      outline: none;
+    }
+    //ie10-11 support
+    &::-ms-expand {
+      display: none;
+    }
+    background: {
+      image: url(../assets/arrow-down.png);
+      position: 170px center;
+      repeat: no-repeat;
+      size: 14px;
+    }
+
+    @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) { //ie10-11 conditional
+      background-position: 120px center;
+    }
+    option:first-child {
+      color: white;
+    }
+  }
+  .select-dropdown {
+    position: relative;
+    .select-container {
+      box-sizing: border-box;
+      color: $secondary-type-color;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      height: 36px;
+      width: 200px;
+      border: solid 1px #DEE1E6;
+      border-radius: 3px;
+      font-weight: $light;
+      padding: 0 10px 0 15px;
+      background: {
+        image: url(../assets/arrow-down.png);
+        position: 170px center;
+        repeat: no-repeat;
+        size: 14px;
+      }
+      .select-selected {
+        font-size: 12px;
+        &.default {
+          color: #B3BAC0;
+        }
+      }
+    }
+    .select-selection {
+      background: white;
+      border: solid 1px #DEE1E6;
+      box-sizing: border-box;
+      display: none;
+      font-weight: $light;
+      list-style: none;
+      margin-top: -1px;
+      overflow: hidden;
+      padding: 10px 10px 10px 15px;
+      position: absolute;
+      top: 36px;
+      width: 200px;
+      z-index: 5;
+      li {
+        color: $secondary-type-color;
+        cursor: pointer;
+        font-size: 12px;
+        padding: 10px 0;
+        &:hover, &.selected {
+          color: $primary-blue;
+          font-weight: $normal;
+        }
+      }
+    }
+    &.show {
+      .select-container {
+        border-bottom: 0;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+  			box-shadow: 0 0 .5em #ddd;
+      }
+      .select-selection {
+        border-top: 0;
+  			box-shadow: 0 5px .5em 0 #ddd;
+        display: block;
+      }
+    }
+  }
+}

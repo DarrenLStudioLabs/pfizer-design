@@ -1,0 +1,16 @@
+@mixin labels {
+	label {
+		color: $tertiary-type-color;
+		display: block;
+		font-size: 10px;
+		letter-spacing: 3px;
+	}
+	label.field-label {
+		color: $primary-type-color;
+		display: block;
+		font-size: 12px;
+		letter-spacing: 0;
+		margin-bottom: 5px;
+		margin-top: 10px;
+	}
+}

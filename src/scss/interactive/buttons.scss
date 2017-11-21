@@ -1,0 +1,40 @@
+@mixin button {
+  button {
+    align-items: center;
+    border-radius: 2px;
+    cursor: pointer;
+    display: flex;
+    font-family: $main-font;
+    font-size: 14px;
+    font-weight: $light;
+    height: 42px;
+    width: 120px;
+    justify-content: center;
+    margin-top: 10px;
+    padding: 0;
+    transition: all .3s ease;
+    &.small {
+      font-size: 12px;
+      height: 36px;
+      width: 106px;
+    }
+    &.primary {
+      background: $primary-blue;
+      border: 1px solid $primary-blue;
+      color: white;
+      &:hover {
+        background: none;
+        color: $primary-blue;
+      }
+    }
+    &.secondary {
+      background: none;
+      border: 1px solid $primary-blue;
+      color: $primary-blue;
+      &:hover {
+        background: $primary-blue;
+        color: white;
+      }
+    }
+  }
+}
