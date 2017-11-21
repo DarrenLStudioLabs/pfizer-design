@@ -7,10 +7,16 @@ import { Snippet } from './snippet'
 export class InteractiveComponent extends React.Component {
 	constructor(props) {
 		super(props)
-		this.state = { current: 0 }
+		this.state = { current: 0, copied: false }
 	}
 	handleClick(i) {
 		this.setState({ current: i })
+	}
+	handleCopyClick() {
+		this.setState({ copied: true })
+		setTimeout(() => {
+			this.setState({ copied: false })
+		}, 3000)
 	}
 	render() {
 		return (
@@ -31,7 +37,9 @@ export class InteractiveComponent extends React.Component {
 									)
 								})
 							}
-							<div className="copy">
+							<div className="copy" onClick={() => {this.handleCopyClick()}}>
+								<span className={`copied-message ${this.state.copied? 'copied' : ''}`}>Copied!</span>
+								<span className="copy-icon"></span>
 								<span>Copy to Clipboard</span>
 							</div>
 						</div>

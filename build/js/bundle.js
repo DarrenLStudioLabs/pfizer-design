@@ -21158,7 +21158,7 @@ var InteractiveComponent = exports.InteractiveComponent = function (_React$Compo
 
 		var _this = _possibleConstructorReturn(this, (InteractiveComponent.__proto__ || Object.getPrototypeOf(InteractiveComponent)).call(this, props));
 
-		_this.state = { current: 0 };
+		_this.state = { current: 0, copied: false };
 		return _this;
 	}
 
@@ -21168,9 +21168,19 @@ var InteractiveComponent = exports.InteractiveComponent = function (_React$Compo
 			this.setState({ current: i });
 		}
 	}, {
+		key: 'handleCopyClick',
+		value: function handleCopyClick() {
+			var _this2 = this;
+
+			this.setState({ copied: true });
+			setTimeout(function () {
+				_this2.setState({ copied: false });
+			}, 3000);
+		}
+	}, {
 		key: 'render',
 		value: function render() {
-			var _this2 = this;
+			var _this3 = this;
 
 			return _react2.default.createElement(
 				'div',
@@ -21195,13 +21205,21 @@ var InteractiveComponent = exports.InteractiveComponent = function (_React$Compo
 									id: index,
 									key: index,
 									onClick: function onClick(i) {
-										return _this2.handleClick(i);
+										return _this3.handleClick(i);
 									},
-									current: _this2.state.current });
+									current: _this3.state.current });
 							}),
 							_react2.default.createElement(
 								'div',
-								{ className: 'copy' },
+								{ className: 'copy', onClick: function onClick() {
+										_this3.handleCopyClick();
+									} },
+								_react2.default.createElement(
+									'span',
+									{ className: 'copied-message ' + (this.state.copied ? 'copied' : '') },
+									'Copied!'
+								),
+								_react2.default.createElement('span', { className: 'copy-icon' }),
 								_react2.default.createElement(
 									'span',
 									null,
@@ -21217,7 +21235,7 @@ var InteractiveComponent = exports.InteractiveComponent = function (_React$Compo
 									contents: tab.content,
 									id: index,
 									key: index,
-									current: _this2.state.current });
+									current: _this3.state.current });
 							})
 						)
 					),
